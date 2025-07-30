@@ -27,6 +27,10 @@ phx_tutorial-*.tar
 
 # Ignore assets that are produced by build tools.
 /priv/static/assets/
+/priv/static/
+!/priv/static/logo.svg
+!/priv/static/favicon.ico
+!/priv/static/robots.txt
 
 # Ignore digested assets cache.
 /priv/static/cache_manifest.json
