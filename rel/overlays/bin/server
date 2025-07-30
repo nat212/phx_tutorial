@@ -2,4 +2,5 @@
 set -eu
 
 cd -P -- "$(dirname -- "$0")"
+./phx_tutorial eval PhxTutorial.Release.migrate
 PHX_SERVER=true exec ./phx_tutorial start
