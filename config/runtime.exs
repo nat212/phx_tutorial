@@ -20,6 +20,30 @@ if System.get_env("PHX_SERVER") do
   config :phx_tutorial, PhxTutorialWeb.Endpoint, server: true
 end
 
+if config_env() == :dev do
+  import Dotenvy
+
+  source!([
+    ".env",
+    System.get_env()
+  ])
+
+  username = env!("POSTGRES_USER", :string!)
+  password = env!("POSTGRES_PASSWORD", :string!)
+  database = env!("POSTGRES_DB", :string!)
+
+  secret_key_base = env!("SECRET_KEY_BASE", :string!)
+
+  config :phx_tutorial, PhxTutorial.Repo,
+    username: username,
+    password: password,
+    hostname: "localhost",
+    port: 5438,
+    database: database
+
+  config :phx_tutorial, PhxTutorialWeb.Endpoint, secret_key_base: secret_key_base
+end
+
 if config_env() == :prod do
   database_url =
     System.get_env("DATABASE_URL") ||

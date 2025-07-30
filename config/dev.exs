@@ -2,10 +2,6 @@ import Config
 
 # Configure your database
 config :phx_tutorial, PhxTutorial.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "phx_tutorial_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -23,7 +19,6 @@ config :phx_tutorial, PhxTutorialWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "uCu/Td3Bfhke254eDPX5U9o+kb8bgyoTJ6phm8BAIGH/RYiRwmMzpdkm1R5YGMui",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:phx_tutorial, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:phx_tutorial, ~w(--watch)]}
