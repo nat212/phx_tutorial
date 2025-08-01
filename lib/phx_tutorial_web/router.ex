@@ -8,6 +8,7 @@ defmodule PhxTutorialWeb.Router do
     plug :put_root_layout, html: {PhxTutorialWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug PhxTutorialWeb.Plugs.Locale, "en"
   end
 
   pipeline :api do
