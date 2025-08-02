@@ -1,6 +1,10 @@
 <.header>
   My Cart
-  <:subtitle :if={@cart.items == []}>Your cart is empty</:subtitle>
+  <:actions>
+    <.link href={~p"/orders"} method="post">
+      <.button>Complete order</.button>
+    </.link>
+  </:actions>
 </.header>
 
 <div :if={@cart.items !== []}>
