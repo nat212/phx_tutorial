@@ -2,7 +2,7 @@ defmodule PhxTutorialWeb.Router do
   use PhxTutorialWeb, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
+    plug :accepts, ["html", "json"]
     plug :fetch_session
     plug :fetch_live_flash
     plug :put_root_layout, html: {PhxTutorialWeb.Layouts, :root}
@@ -21,6 +21,7 @@ defmodule PhxTutorialWeb.Router do
     get "/", PageController, :home
     get "/hello", HelloController, :index
     get "/hello/:messenger", HelloController, :show
+    get "/redirect_test", PageController, :redirect_test
   end
 
   # Other scopes may use custom stacks.
